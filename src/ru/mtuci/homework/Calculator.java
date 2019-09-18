@@ -4,21 +4,8 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-/**
- * Главный класс приложения Калькулятор. Калькулятор должен выполнять следующие операции:
- * сложение (+), вычитание (-), умножение (*) и деление (/) двух чисел.
- * Сейчас полностью реализованно только сложение, остальные операции требуют доработки.
- * <p>
- * Если все операции будут реализованы, можно подумать над улучшениями, например:
- * 1. Проверка деления на ноль.
- * 2. Проверка, если в консоль ввели не число, а буквы.
- * 3. Реализовать дополнительные операции: извлечение корня, возведение в степень.
- */
 public class Calculator {
 
-  /**
-   * Этот метод является точкой входа, с него начинает выполняться любое Java приложение.
-   *
    * @param args
    */
   public static void main(String[] args) throws IOException {
@@ -48,33 +35,27 @@ public class Calculator {
     String operation = consoleReader.readLine();
 
     // Условие для определения какую операцию нужно выполнить.
-    if ("+".equals(operation)) { // если операция равно +
-      System.out.println("Результат: " + calculator.sum(a, b));
-    } else if ("-".equals(operation)) {
-      //TODO Напиши вызов метода вычитания и выпод результата здесь
-
-    } //TODO Допиши проверки для умножения и деления
+    if        ("+".equals(operation)) {System.out.println("Результат: " + calculator.sum(a, b));
+    } else if ("-".equals(operation)) {System.out.println("Результат: " + calculator.subtract(a, b));
+    } else if ("-".equals(operation)) {System.out.println("Результат: " + calculator.multiply(a, b));
+    } else if ("-".equals(operation)) {System.out.println("Результат: " + calculator.divide(a, b));
+    }
 
   }
 
-  /**
-   * Метод выполняющий сложение двух десячичных чисел
-   *
-   * @param a первое слагаемое
-   * @param b второе слагаемое
-   * @return Возвращает сумму параметров a и b
-   */
   private double sum(double a, double b) {
     return a + b;
   }
-
-
   private double subtract(double a, double b) {
-    //TODO Напиши реализацию этого метода, чтобы он выполнял вычитание,
-    // сейчас всегда возвращается ноль.
-    return 0;
+    return a - b;
+  }
+  private double multiply(double a, double b) {
+    return a * b;
+  }
+  private double divide(double a, double b) {
+    return a / b;
   }
 
-  //TODO Допиши по аналогии еще два метода: multiply, divide
+}
 
 }
